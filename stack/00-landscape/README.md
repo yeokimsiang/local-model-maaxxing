@@ -73,6 +73,23 @@ For step 1 of this repo, benchmark **llama.cpp** and **vLLM** on the same model.
 - **`nvidia-smi` shows memory as `N/A`.** Use `free -g`.
 - **Unified-memory page cache.** File cache can hold on to memory. NVIDIA's fix is `sync; echo 3 > /proc/sys/vm/drop_caches` with `sudo`; coordinate before doing that on a shared box.
 
+## Workarounds on the PGX
+
+**Why containers fail.** A container ships its own CUDA *runtime* but always uses the host's *driver*. Driver 580 supports CUDA up to **13.0** (`nvidia-smi` shows `CUDA Version: 13.0`). NGC images built on CUDA 13.2 or later need driver 595 or newer, and GB10 doesn't support the forward-compatibility package that would normally bridge the gap. So the image stops at startup with *"compatibility mode is UNAVAILABLE"*.
+
+| Problem | Workaround | Notes |
+|---|---|---|
+| NGC containers newer than 26.02 won't start | **pip-install the cu130 wheel in a venv** (vLLM, SGLang) | The versions match exactly: wheel CUDA 13.0, driver ceiling 13.0. No root needed. |
+| | Fallback: `nvcr.io/nvidia/vllm:26.02-py3` | Pins an older vLLM (0.15). |
+| | Avoid: images that set `NVIDIA_DISABLE_REQUIRE=1` | That only skips the check; the image can still crash at runtime. |
+| | Upgrade the driver to 595 or newer | Needs a reboot and can break the work services. Only with their owners, through the vendor's update path. |
+| No Docker access | `sudo docker …`, or `sudo usermod -aG docker $USER` and log in again | Being in the `docker` group is effectively root. Mostly unnecessary if you use pip. |
+| llama.cpp has no GB10 kernels, or is slow | `-DCMAKE_CUDA_ARCHITECTURES=121a-real` | `121a` means compute capability 12.1 with architecture-specific instructions (FP4 tensor cores); `real` means emit machine code (SASS), not PTX. |
+| llama.cpp port changed | Always pass `--port` | The default is now 9931. |
+| TensorRT-LLM is immature on GB10 | Skip it for now; vLLM and SGLang share many kernels (CUTLASS, FlashInfer) and load NVIDIA's NVFP4 checkpoints | Try its container with `sudo docker` in step 3 if curious. |
+| Work services hold most of the memory | Explicit caps (`--gpu-memory-utilization 0.2–0.25`, short `--max-model-len`, few sequences), 8B-class or quantized models, FP8/q8 KV cache, `watch -n1 free -g` while loading | If memory overflows, the OOM killer may kill **the work vLLM**, not yours. vLLM *reserves* its share at startup, so ask the owners whether theirs can shrink. |
+| | Untested: hard-cap your own process with `systemd-run --user --scope -p MemoryMax=30G <cmd>` | It's unclear whether GPU allocations on unified memory count towards a cgroup limit; see `questions.md`. |
+
 ## Method
 
 All the raw data is in [`data/`](data/).
