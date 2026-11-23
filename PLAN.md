@@ -1,80 +1,44 @@
 # Plan: local-model-maaxxing
 
-A 12–18 month, build-first path from data/AI engineer to frontier-lab **Research Engineer / Member of Technical Staff** depth (Research Scientist kept open), run on a Lenovo ThinkStation PGX (GB10, 128 GB unified memory).
+Run, understand and rebuild a local LLM stack **on the PGX itself** (Lenovo ThinkStation PGX: GB10 Grace Blackwell, 128 GB unified memory, ARM64, CUDA 13, ~273 GB/s memory bandwidth).
 
-Agreed 2026-11-23 through a structured interview. Change it deliberately: edit this file and note why in `log/`.
+This is the **stack track**. The concepts track (maths, micrograd → GPT, RL, papers) lives in its own repo, `research-engineer-curriculum`, and starts once this track is done.
 
-## Goals
+First agreed 2026-11-23, and split into two tracks the same day (see `log/2026-11-23.md`). Change it deliberately: edit this file and note why in `log/`.
 
-| | |
-|---|---|
-| Target role | Research Engineer / MTS; Research Scientist kept open |
-| Payoff, now | The go-to person for local and private LLMs at work (day job can be used freely) |
-| Payoff, later | A frontier lab role, or an own product |
-| Starting level | 1–2 out of 5 on maths, raw PyTorch, transformer internals and paper reproduction |
-| Time | 10–15 h/week, 12–18 months |
-| Style | Build first, pair-building with Claude, theory as needed plus a scheduled maths thread |
-| Visibility | Fully public: GitHub, write-ups, posts |
+## Why two tracks, in this order
 
-## Scope: T-shaped
+Learning concepts alongside the build slows the build down. Building the whole stack first gives a bird's-eye view, so later study can answer questions that span the system ("why is decode memory-bound here?"), not just narrow ones. Running a model also needs no gradients, so the foundations (autograd, backprop) aren't on this path.
 
-- **Backbone:** optimization, generalization, scaling laws, evals.
-- **Deep vertical:** LLMs (pretraining → post-training → inference).
-- **Second pillar:** reinforcement learning (post-training, reasoning, agents).
-- **Breadth modules:** diffusion and flow matching; state-space models and hybrids; multimodal.
-- **Optional side branch:** recommender systems, when work calls for it.
+The risk is a stack you've **configured but don't understand**. This is guarded against by step 2: you write the forward pass yourself and prove it matches a reference implementation.
 
-## Specialization (provisional, confirm at month 6)
+## The four steps
 
-**Evals** as the entry point, growing into **post-training and RL**, with **interpretability** on the side.
+| Step | Folder | What | Done when |
+|---|---|---|---|
+| 1. Run | `stack/01-run/` | Run open models on the PGX with llama.cpp and vLLM. Measure prefill and decode tokens/s, memory and time to first token. | A benchmark table for 2–3 models × 2 runtimes, with each number explained in terms of bandwidth and compute. |
+| 2. Engine | `stack/02-engine/` | A from-scratch inference engine for one small model (Qwen3-0.6B or 1.7B) in plain PyTorch: safetensors loading, tokenizer, RMSNorm, RoPE, GQA attention, SwiGLU, KV cache, sampling. | Logits match HF `transformers` to within tolerance, and generation works end to end. |
+| 3. Faster | `stack/03-faster/` | Quantization (int8, int4, then NVFP4, which GB10 runs natively), batching, and profiling. Compare against vLLM. | Measured speed and quality (perplexity) at each step, and the gap to vLLM explained. |
+| 4. Serve | `stack/04-serve/` | An OpenAI-compatible API in front of your engine (and vLLM), with streaming and concurrent requests. | The work eval harness can call it. |
 
-## Weekly routine (~12 h)
+Rough timing at 10–15 h/week: step 1 ~1 week, step 2 ~3–4 weeks, step 3 ~2–3 weeks, step 4 ~1 week. That's about two months.
 
-| Block | Hours | What |
-|---|---|---|
-| Maths | 3 | 3Blue1Brown → Strang 18.06 → Stat 110 → matrix calculus (first 4–6 months) |
-| Build | 6 | Pair-building with Claude; work projects count here |
-| Paper | 2 | One paper a week, chosen from the feed and read closely |
-| Log | 1 | Learning log in `log/` |
+## Feeding the concepts track
 
-A public post every 2–3 weeks.
+Every "why?" you hit goes in [`questions.md`](questions.md), with the step it came from. Don't stop to answer it unless it blocks the build. That list becomes the starting syllabus of the concepts track.
 
-## Reinforcement, not gates
+## PGX constraints
 
-- **Flashcards:** after each session, Claude writes an Anki deck (`flashcards/`, imported with FSRS scheduling).
-- **Break-it drills:** monthly, Claude hands over a subtly broken training run or eval to diagnose without help (`drills/`). They show where the gaps are and never block progress.
-- Checkpoints test whether you can debug and modify things on your own, not verbatim recall.
+- **Shared machine.** Work vLLM services already run here and use most of the memory (about 44 GB was free on 2026-11-23). Don't stop or reconfigure them. Check `free -g` before loading a model, and cap vLLM with `--gpu-memory-utilization`.
+- **Unified memory.** CPU and GPU share the same 128 GB, so "VRAM" and "RAM" are one budget.
+- **ARM64 + CUDA 13 (sm_121).** Some wheels and prebuilt binaries don't exist for this platform. Prefer NVIDIA's aarch64 builds and containers, or build from source.
+- Keep model weights in your own cache (e.g. `~/models` or `~/.cache/huggingface`), not in the work directories under `/opt`.
 
-## Checkpoints (time-boxed)
+## Related projects (separate repos)
 
-| Month | Checkpoint |
-|---|---|
-| 3 | GPT trained from scratch (nanoGPT, GPT-2-small reproduction) and every line explained; backprop through attention derived on paper |
-| 6 | One paper replicated with a public write-up; work eval harness in use; specialization confirmed |
-| 9 | One small original result; a multi-GPU training exercise (cloud, ~$50–150/month from month 6) |
-| 12 | A research-style report (LessWrong or arXiv-quality); fellowship applications sent (MATS, Anthropic Fellows and similar) |
+1. **Work eval harness.** Local models against the API models in use today, on real work tasks (quality, latency, cost). Step 4 plugs into it.
+2. **Research feed.** A weekly digest run on the PGX with a local model. It will run on the stack built here.
 
-## Projects
+## Reinforcement
 
-1. **Work eval harness** (separate repo; build in days, results over weeks). Local models (gpt-oss-120b, Qwen, Gemma) against the API models in use today, on real work tasks: quality, latency, cost. Hosted securely for colleagues.
-2. **Small fine-tune** (months 4–6). A small model that takes over one paid API job (extraction or classification), with a business case.
-3. **Research feed** (week 2, separate repo). Runs weekly on the PGX with gpt-oss-120b.
-   - Sources: arXiv (cs.LG, cs.CL, cs.AI), OpenReview (NeurIPS, ICML, ICLR), Hugging Face Daily Papers, lab blogs (Anthropic, transformer-circuits.pub, OpenAI, DeepMind), the Alignment Forum and LessWrong, r/MachineLearning, r/LocalLLaMA, Hacker News.
-   - Ranking: relevance to this curriculum first, then social signals.
-   - Output: an HTML digest plus an RSS feed, sorted into "intuition" and "go deeper", with same-day alerts for major releases.
-   - Cross-source trend analysis.
-   - **Summary faithfulness is evaluated**, which makes it the first evals research project.
-
-## Community
-
-EleutherAI and GPU MODE Discords, LessWrong and the Alignment Forum now; fellowships around months 9–12.
-
-## First weeks
-
-- **Day 1:** micrograd from scratch (`curriculum/00-foundations/`).
-- **Days 2–4:** work eval harness.
-- **Week 2:** research feed.
-
-## Working setup
-
-This cloud session connects to the PGX through Remote Control, so code runs on the PGX and the chat can be driven from any device. This repo carries the full context, so any session on any machine can pick it up.
+Flashcards after each session (`flashcards/`) and the learning log (`log/`) continue as before. Break-it drills (`drills/`) now target the stack: a broken RoPE, a stale KV cache, a mis-scaled quantization.
