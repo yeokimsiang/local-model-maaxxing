@@ -24,6 +24,7 @@ A data/AI engineer at 1–2 out of 5 on maths, raw PyTorch, transformer internal
 
 ## Layout
 
+- `stack/00-landscape/`: survey of local inference engines (measured popularity, usage guides).
 - `stack/01-run/`: llama.cpp and vLLM on the PGX, with benchmarks.
 - `stack/02-engine/`: the from-scratch inference engine.
 - `stack/03-faster/`: quantization, batching, profiling.

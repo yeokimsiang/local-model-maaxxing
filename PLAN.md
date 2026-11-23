@@ -12,6 +12,10 @@ Learning concepts alongside the build slows the build down. Building the whole s
 
 The risk is a stack you've **configured but don't understand**. This is guarded against by step 2: you write the forward pass yourself and prove it matches a reference implementation.
 
+## Step 0: landscape
+
+`stack/00-landscape/` surveys the local inference engines: measured popularity (GitHub, PyPI, Docker, Hacker News, Hugging Face, r/LocalLLaMA) and usage guides for the leading ones, with PGX notes.
+
 ## The four steps
 
 | Step | Folder | What | Done when |

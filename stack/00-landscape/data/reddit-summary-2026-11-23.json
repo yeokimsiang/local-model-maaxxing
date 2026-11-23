@@ -1,0 +1,120 @@
+{
+  "collected": "2026-11-23",
+  "total_posts": 935,
+  "neutral_posts": 164,
+  "gb10_titled_posts": 91,
+  "engines": {
+    "llama.cpp": {
+      "posts": 200,
+      "upvotes": 48649,
+      "title_mentions": 83,
+      "in_neutral_posts": 45,
+      "in_gb10_titled_posts": 10
+    },
+    "Ollama": {
+      "posts": 74,
+      "upvotes": 16448,
+      "title_mentions": 18,
+      "in_neutral_posts": 8,
+      "in_gb10_titled_posts": 1
+    },
+    "vLLM": {
+      "posts": 132,
+      "upvotes": 19222,
+      "title_mentions": 38,
+      "in_neutral_posts": 51,
+      "in_gb10_titled_posts": 24
+    },
+    "SGLang": {
+      "posts": 53,
+      "upvotes": 3819,
+      "title_mentions": 15,
+      "in_neutral_posts": 17,
+      "in_gb10_titled_posts": 5
+    },
+    "TensorRT-LLM": {
+      "posts": 22,
+      "upvotes": 456,
+      "title_mentions": 3,
+      "in_neutral_posts": 8,
+      "in_gb10_titled_posts": 3
+    },
+    "ExLlama": {
+      "posts": 27,
+      "upvotes": 2027,
+      "title_mentions": 11,
+      "in_neutral_posts": 10,
+      "in_gb10_titled_posts": 2
+    },
+    "LM Studio": {
+      "posts": 66,
+      "upvotes": 14685,
+      "title_mentions": 17,
+      "in_neutral_posts": 5,
+      "in_gb10_titled_posts": 1
+    },
+    "MLX": {
+      "posts": 49,
+      "upvotes": 8493,
+      "title_mentions": 17,
+      "in_neutral_posts": 11,
+      "in_gb10_titled_posts": 3
+    },
+    "KoboldCpp": {
+      "posts": 49,
+      "upvotes": 3538,
+      "title_mentions": 18,
+      "in_neutral_posts": 2,
+      "in_gb10_titled_posts": 0
+    },
+    "llamafile": {
+      "posts": 12,
+      "upvotes": 585,
+      "title_mentions": 1,
+      "in_neutral_posts": 0,
+      "in_gb10_titled_posts": 0
+    },
+    "LMDeploy": {
+      "posts": 5,
+      "upvotes": 154,
+      "title_mentions": 0,
+      "in_neutral_posts": 0,
+      "in_gb10_titled_posts": 0
+    },
+    "KTransformers": {
+      "posts": 12,
+      "upvotes": 233,
+      "title_mentions": 3,
+      "in_neutral_posts": 2,
+      "in_gb10_titled_posts": 0
+    },
+    "MLC LLM": {
+      "posts": 3,
+      "upvotes": 3,
+      "title_mentions": 1,
+      "in_neutral_posts": 1,
+      "in_gb10_titled_posts": 0
+    },
+    "text-generation-webui": {
+      "posts": 12,
+      "upvotes": 1129,
+      "title_mentions": 3,
+      "in_neutral_posts": 0,
+      "in_gb10_titled_posts": 0
+    },
+    "LocalAI": {
+      "posts": 20,
+      "upvotes": 247,
+      "title_mentions": 10,
+      "in_neutral_posts": 2,
+      "in_gb10_titled_posts": 0
+    },
+    "HF TGI": {
+      "posts": 3,
+      "upvotes": 2,
+      "title_mentions": 0,
+      "in_neutral_posts": 1,
+      "in_gb10_titled_posts": 0
+    }
+  }
+}

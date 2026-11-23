@@ -1,0 +1,3 @@
+# Raw Reddit posts (other people's content): keep locally, commit only the derived summary.
+data/reddit-localllama-run*.json
+__pycache__/

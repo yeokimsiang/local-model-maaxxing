@@ -1,0 +1,355 @@
+{
+  "collected": "2026-11-23",
+  "engines": {
+    "llama.cpp": {
+      "github": {
+        "repo": "ggml-org/llama.cpp",
+        "stars": 136144,
+        "forks": 25944,
+        "contributors": 2295,
+        "created": "2023-03-10",
+        "last_push": "2026-11-23",
+        "archived": false,
+        "license": "MIT"
+      },
+      "pypi_downloads_last_month": 582349,
+      "pypi_package": "llama-cpp-python",
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": 2381,
+      "hn_phrase": "llama.cpp"
+    },
+    "Ollama": {
+      "github": {
+        "repo": "ollama/ollama",
+        "stars": 187896,
+        "forks": 19147,
+        "contributors": 630,
+        "created": "2023-06-26",
+        "last_push": "2026-11-22",
+        "archived": false,
+        "license": "MIT"
+      },
+      "pypi_downloads_last_month": 12503147,
+      "pypi_package": "ollama",
+      "docker_pulls_total": 204250802,
+      "docker_image": "ollama/ollama",
+      "hn_mentions_12mo": 2614,
+      "hn_phrase": "ollama"
+    },
+    "vLLM": {
+      "github": {
+        "repo": "vllm-project/vllm",
+        "stars": 97377,
+        "forks": 25163,
+        "contributors": 4178,
+        "created": "2023-02-09",
+        "last_push": "2026-11-23",
+        "archived": false,
+        "license": "Apache-2.0"
+      },
+      "pypi_downloads_last_month": 2763317,
+      "pypi_package": "vllm",
+      "docker_pulls_total": 45323244,
+      "docker_image": "vllm/vllm-openai",
+      "hn_mentions_12mo": 1196,
+      "hn_phrase": "vllm"
+    },
+    "SGLang": {
+      "github": {
+        "repo": "sgl-project/sglang",
+        "stars": 38954,
+        "forks": 10772,
+        "contributors": 2335,
+        "created": "2024-01-08",
+        "last_push": "2026-11-23",
+        "archived": false,
+        "license": "Apache-2.0"
+      },
+      "pypi_downloads_last_month": 661156,
+      "pypi_package": "sglang",
+      "docker_pulls_total": 16599138,
+      "docker_image": "lmsysorg/sglang",
+      "hn_mentions_12mo": 225,
+      "hn_phrase": "sglang"
+    },
+    "TensorRT-LLM": {
+      "github": {
+        "repo": "NVIDIA/TensorRT-LLM",
+        "stars": 15118,
+        "forks": 2952,
+        "contributors": 533,
+        "created": "2023-08-16",
+        "last_push": "2026-11-23",
+        "archived": false,
+        "license": "NOASSERTION"
+      },
+      "pypi_downloads_last_month": 5632,
+      "pypi_package": "tensorrt-llm",
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": 24,
+      "hn_phrase": "tensorrt-llm"
+    },
+    "HF TGI": {
+      "github": {
+        "repo": "huggingface/text-generation-inference",
+        "stars": 10876,
+        "forks": 1289,
+        "contributors": 148,
+        "created": "2022-10-08",
+        "last_push": "2026-03-21",
+        "archived": true,
+        "license": "Apache-2.0"
+      },
+      "pypi_downloads_last_month": 40907,
+      "pypi_package": "text-generation",
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": 0,
+      "hn_phrase": "text-generation-inference"
+    },
+    "MLX-LM": {
+      "github": {
+        "repo": "ml-explore/mlx-lm",
+        "stars": 7739,
+        "forks": 1219,
+        "contributors": 267,
+        "created": "2025-03-11",
+        "last_push": "2026-11-21",
+        "archived": false,
+        "license": "MIT"
+      },
+      "pypi_downloads_last_month": 591965,
+      "pypi_package": "mlx-lm",
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": 866,
+      "hn_phrase": "mlx"
+    },
+    "ExLlamaV2": {
+      "github": {
+        "repo": "turboderp-org/exllamav2",
+        "stars": 4655,
+        "forks": 351,
+        "contributors": 57,
+        "created": "2023-08-30",
+        "last_push": "2026-03-04",
+        "archived": false,
+        "license": "MIT"
+      },
+      "pypi_downloads_last_month": 1690,
+      "pypi_package": "exllamav2",
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": 4,
+      "hn_phrase": "exllama"
+    },
+    "ExLlamaV3": {
+      "github": {
+        "repo": "turboderp-org/exllamav3",
+        "stars": 1860,
+        "forks": 318,
+        "contributors": 105,
+        "created": "2025-04-06",
+        "last_push": "2026-11-21",
+        "archived": false,
+        "license": "MIT"
+      },
+      "pypi_downloads_last_month": null,
+      "pypi_package": null,
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": null,
+      "hn_phrase": null
+    },
+    "LMDeploy": {
+      "github": {
+        "repo": "InternLM/lmdeploy",
+        "stars": 8155,
+        "forks": 787,
+        "contributors": 165,
+        "created": "2023-06-15",
+        "last_push": "2026-11-23",
+        "archived": false,
+        "license": "Apache-2.0"
+      },
+      "pypi_downloads_last_month": 50442,
+      "pypi_package": "lmdeploy",
+      "docker_pulls_total": 587786,
+      "docker_image": "openmmlab/lmdeploy",
+      "hn_mentions_12mo": 1,
+      "hn_phrase": "lmdeploy"
+    },
+    "MLC LLM": {
+      "github": {
+        "repo": "mlc-ai/mlc-llm",
+        "stars": 23512,
+        "forks": 2198,
+        "contributors": 165,
+        "created": "2023-04-29",
+        "last_push": "2026-11-21",
+        "archived": false,
+        "license": "Apache-2.0"
+      },
+      "pypi_downloads_last_month": null,
+      "pypi_package": null,
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": 2,
+      "hn_phrase": "mlc-llm"
+    },
+    "llamafile": {
+      "github": {
+        "repo": "mozilla-ai/llamafile",
+        "stars": 26701,
+        "forks": 1682,
+        "contributors": 80,
+        "created": "2023-09-10",
+        "last_push": "2026-11-09",
+        "archived": false,
+        "license": "NOASSERTION"
+      },
+      "pypi_downloads_last_month": null,
+      "pypi_package": null,
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": 46,
+      "hn_phrase": "llamafile"
+    },
+    "LocalAI": {
+      "github": {
+        "repo": "mudler/LocalAI",
+        "stars": 50507,
+        "forks": 4634,
+        "contributors": 292,
+        "created": "2023-03-18",
+        "last_push": "2026-11-23",
+        "archived": false,
+        "license": "MIT"
+      },
+      "pypi_downloads_last_month": null,
+      "pypi_package": null,
+      "docker_pulls_total": 10991844,
+      "docker_image": "localai/localai",
+      "hn_mentions_12mo": 28,
+      "hn_phrase": "localai"
+    },
+    "KoboldCpp": {
+      "github": {
+        "repo": "LostRuins/koboldcpp",
+        "stars": 12367,
+        "forks": 826,
+        "contributors": 2365,
+        "created": "2023-03-16",
+        "last_push": "2026-11-22",
+        "archived": false,
+        "license": "AGPL-3.0"
+      },
+      "pypi_downloads_last_month": null,
+      "pypi_package": null,
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": 23,
+      "hn_phrase": "koboldcpp"
+    },
+    "text-generation-webui": {
+      "github": {
+        "repo": "oobabooga/textgen",
+        "stars": 47739,
+        "forks": 5981,
+        "contributors": 393,
+        "created": "2022-12-21",
+        "last_push": "2026-08-17",
+        "archived": false,
+        "license": "AGPL-3.0"
+      },
+      "pypi_downloads_last_month": null,
+      "pypi_package": null,
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": 10,
+      "hn_phrase": "oobabooga"
+    },
+    "KTransformers": {
+      "github": {
+        "repo": "kvcache-ai/ktransformers",
+        "stars": 19695,
+        "forks": 1605,
+        "contributors": 135,
+        "created": "2024-07-26",
+        "last_push": "2026-11-22",
+        "archived": false,
+        "license": "Apache-2.0"
+      },
+      "pypi_downloads_last_month": null,
+      "pypi_package": null,
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": 8,
+      "hn_phrase": "ktransformers"
+    },
+    "LM Studio (CLI)": {
+      "github": {
+        "repo": "lmstudio-ai/lms",
+        "stars": 5444,
+        "forks": 478,
+        "contributors": 13,
+        "created": "2024-04-15",
+        "last_push": "2026-11-17",
+        "archived": false,
+        "license": "MIT"
+      },
+      "pypi_downloads_last_month": 141582,
+      "pypi_package": "lmstudio",
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": 726,
+      "hn_phrase": "lm studio"
+    },
+    "NVIDIA Dynamo": {
+      "github": {
+        "repo": "ai-dynamo/dynamo",
+        "stars": 8551,
+        "forks": 1892,
+        "contributors": 519,
+        "created": "2025-03-03",
+        "last_push": "2026-11-23",
+        "archived": false,
+        "license": "NOASSERTION"
+      },
+      "pypi_downloads_last_month": 60610,
+      "pypi_package": "ai-dynamo",
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": 6,
+      "hn_phrase": "nvidia dynamo"
+    },
+    "HF transformers (reference)": {
+      "github": {
+        "repo": "huggingface/transformers",
+        "stars": 169405,
+        "forks": 35271,
+        "contributors": 4274,
+        "created": "2018-10-29",
+        "last_push": "2026-11-23",
+        "archived": false,
+        "license": "Apache-2.0"
+      },
+      "pypi_downloads_last_month": 118650590,
+      "pypi_package": "transformers",
+      "docker_pulls_total": null,
+      "docker_image": null,
+      "hn_mentions_12mo": null,
+      "hn_phrase": null
+    }
+  },
+  "hf_formats": {
+    "GGUF (llama.cpp, Ollama, LM Studio, KoboldCpp)": 224897,
+    "MLX (Apple MLX-LM, LM Studio on Mac)": 29661,
+    "AWQ (vLLM, SGLang, TGI, LMDeploy)": 8495,
+    "GPTQ (vLLM, SGLang, TGI, ExLlama)": 8921,
+    "EXL2 (ExLlamaV2)": 4712,
+    "EXL3 (ExLlamaV3)": 2796
+  }
+}
